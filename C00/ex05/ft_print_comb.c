@@ -28,31 +28,34 @@ void ft_print_comb(void)
 	bool set = true;
 	int gdb = 0;
 
-	while (comb[0] < '7' && gdb < 2)
+	while (comb[0] < '7')
 	{
 		while (comb[i] <= '9' - 2 + i)
 		{
 			if (!set)
 			{
+
 				while (i < 2)
 				{
 
-					comb[i] = comb[i - 1] + 1;
+
 					i++;
 				}
 				set = true;
 			}
-			printf("i = %d\n", i);
-			ft_putstr("|");
+			//printf("gdb = %d\n");
 			ft_putstr(comb);
 			ft_putstr(", ");
 			comb[i]++;
 		}
 		set = false;
+		comb[i - 1] = comb[i - 1] + 1;
+		comb[i] = comb[i - 1] + 1;
 		i--;
 		gdb++;
 	}
 	ft_putstr(comb);
+	puts("");
 }
 
 int main()
